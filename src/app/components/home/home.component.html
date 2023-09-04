@@ -1,0 +1,27 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Cím</th>
+        <th scope="col">CPU</th>
+        <th scope="col">GPU</th>
+        <th scope="col">Használt</th>
+        <th scope="col">Price</th>
+        <th scope="col">RAM</th>
+        <th scope="col">Storage</th>
+        <th scope="col">Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let laptop of laptops">
+        <td>{{laptop.cim}}</td>
+        <td>{{getAllCpus(laptop.cpu)?.name}}</td>
+        <td>{{laptop.gpu}}</td>
+        <td>{{laptop.hasznalt? 'Igen' : 'Nem'}}</td>
+        <td>{{laptop.price| currency: 'HUF ' : 'symbol' : '2.0-3'}}</td>
+        <td>{{laptop.ram}}</td>
+        <td>{{laptop.storage}}</td>
+        <td>{{laptop.comment?.text}}</td>
+      </tr>
+    </tbody>
+  </table>

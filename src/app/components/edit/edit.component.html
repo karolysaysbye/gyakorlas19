@@ -1,0 +1,45 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Cím</th>
+        <th scope="col">CPU</th>
+        <th scope="col">GPU</th>
+        <th scope="col">Használt</th>
+        <th scope="col">Price</th>
+        <th scope="col">RAM</th>
+        <th scope="col">Storage</th>
+        <th scope="col">Comment</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let laptop of laptops">
+        <td><input class="form-control" type="text" [(ngModel)]="laptop.cim"></td>
+        <td>
+            <select class="form-select" [(ngModel)]="laptop.cpu">
+                <option [value]="'-CPU2'">Apple A15 Bionic</option>
+                <option [value]="'-CPU1'">Qualcomm Snapdragon 888</option>
+              </select>
+        </td>
+        <td><input class="form-control"  type="text" [(ngModel)]="laptop.gpu"></td>
+        <td>
+            <select class="form-select" [(ngModel)]="laptop.hasznalt">
+                <option [value]=true>Igen</option>
+                <option [value]=false>Nem</option>
+              </select>
+        </td>
+        <td><input class="form-control"  type="number" [(ngModel)]="laptop.price"></td>
+        <td><input class="form-control"  type="text" [(ngModel)]="laptop.ram"></td>
+        <td><input class="form-control"  type="text" [(ngModel)]="laptop.storage"></td>
+        <td><input class="form-control"  *ngIf="laptop.comment" type="text" [(ngModel)]="laptop.comment.text"></td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Default button group">
+                <button (click)="updateLaptops(laptop)" type="button" class="btn btn-success">Frissítés</button>
+                <button (click)="deleteLaptops(laptop)" type="button" class="btn btn-danger">Törlés</button>
+              </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>

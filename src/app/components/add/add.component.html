@@ -1,0 +1,43 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Cím</th>
+            <th scope="col">CPU</th>
+            <th scope="col">GPU</th>
+            <th scope="col">Használt</th>
+            <th scope="col">Price</th>
+            <th scope="col">RAM</th>
+            <th scope="col">Storage</th>
+            <th scope="col">Comment</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input class="form-control" type="text" [(ngModel)]="ujLaptop.cim"></td>
+            <td>
+                <select class="form-select" [(ngModel)]="ujLaptop.cpu">
+                    <option [value]="'-CPU2'">Apple A15 Bionic</option>
+                    <option [value]="'-CPU1'">Qualcomm Snapdragon 888</option>
+                </select>
+            </td>
+            <td><input class="form-control" type="text" [(ngModel)]="ujLaptop.gpu"></td>
+            <td>
+                <select class="form-select" [(ngModel)]="ujLaptop.hasznalt">
+                    <option [value]=true>Igen</option>
+                    <option [value]=false>Nem</option>
+                </select>
+            </td>
+            <td><input class="form-control" type="number" [(ngModel)]="ujLaptop.price"></td>
+            <td><input class="form-control" type="text" [(ngModel)]="ujLaptop.ram"></td>
+            <td><input class="form-control" type="text" [(ngModel)]="ujLaptop.storage"></td>
+            <td><input class="form-control" *ngIf=ujLaptop.comment type="text" [(ngModel)]="ujLaptop.comment.text"></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Default button group">
+                    <button (click)="newLaptop(ujLaptop)" type="button" class="btn btn-success">Hozzáadás</button>
+                </div>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
